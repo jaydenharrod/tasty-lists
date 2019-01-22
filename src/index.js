@@ -1,12 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { createGlobalStyle } from 'styled-components';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const Global = createGlobalStyle`
+  body {
+    margin: 15px;
+    padding: 0;
+    background-color: hsl(208, 32%, 99%);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial;
+  }
+  h1 {
+    text-align: center;
+  }
+`;
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render(
+  <>
+    <h1>Tasty Lists</h1>
+    <App />
+    <Global />
+  </>,
+  document.getElementById('root')
+);
